@@ -1,74 +1,49 @@
 /*************************************************************************
-                           Xxx  -  description
-                             -------------------
-    début                : $DATE$
-    copyright            : (C) $YEAR$ par $AUTHOR$
-    e-mail               : $EMAIL$
+Trajet  -  description
+-------------------
+début                : 11/18
+copyright            : (C) 2018 par Lelouard M, Tondereau A
+e-mail               : $EMAIL$
 *************************************************************************/
 
-//---------- Réalisation de la classe <Xxx> (fichier Xxx.cpp) ------------
+//---------- Réalisation de la classe <Trajet> (fichier Trajet.cpp) ------------
 
 //---------------------------------------------------------------- INCLUDE
 
 //-------------------------------------------------------- Include système
-using namespace std;
 #include <iostream>
+#include <cstring>
+using namespace std;
 
 //------------------------------------------------------ Include personnel
-#include "trajet.h"
+#include "Trajet.h"
 
 //------------------------------------------------------------- Constantes
-
 //----------------------------------------------------------------- PUBLIC
 
 //----------------------------------------------------- Méthodes publiques
-// type Xxx::Méthode ( liste des paramètres )
-// Algorithme :
-//
-//{
-//} //----- Fin de Méthode
 
+void Trajet::Afficher () const
+{
+
+  cout << "Trajet de " << depart << " à " << arrivee << endl;
+}
+
+char* Trajet::GetDepart() const
+{
+  return depart;
+}
+char* Trajet::GetArrivee() const
+{
+  return arrivee;
+}
 
 //------------------------------------------------- Surcharge d'opérateurs
-trajet & trajet::operator = ( const trajet & untrajet )
-// Algorithme :
-//
-{
-} //----- Fin de operator =
-
 
 //-------------------------------------------- Constructeurs - destructeur
-trajet::trajet ( const trajet & untrajet )
-// Algorithme :
-//
+Trajet::Trajet ( const Trajet & unTrajet )
 {
-#ifdef MAP
-     cout << "Appel au constructeur de copie de <Xxx>" << endl;
-#endif
-} //----- Fin de Xxx (constructeur de copie)
-
-
-trajet::trajet ( )
-// Algorithme :
-//
-{
-#ifdef MAP
-    cout << "Appel au constructeur de <Xxx>" << endl;
-#endif
-} //----- Fin de Xxx
-
-
-trajet::~trajet ( )
-// Algorithme :
-//
-{
-#ifdef MAP
-    cout << "Appel au destructeur de <Xxx>" << endl;
-#endif
-} //----- Fin de ~Xxx
-
-
-//------------------------------------------------------------------ PRIVE
-
-//----------------------------------------------------- Méthodes protégées
-
+  #ifdef MAP
+  cout << "Appel au constructeur de copie de <Trajet>" << endl;
+  #endif
+} //----- Fin de Trajet (constructeur de copie)
