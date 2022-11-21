@@ -28,6 +28,9 @@ class Trajet : public Ancetre
 
 public:
 void Afficher();
+virtual getArrivee();
+virtual getDepart();
+
 //----------------------------------------------------- Méthodes publiques
     // type Méthode ( liste des paramètres );
     // Mode d'emploi :
