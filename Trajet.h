@@ -33,7 +33,6 @@ void Afficher();
     // Mode d'emploi :
     //
     // Contrat :
-    //
 
 
 //------------------------------------------------- Surcharge d'opérateurs
