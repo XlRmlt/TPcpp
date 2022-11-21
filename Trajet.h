@@ -39,7 +39,7 @@ void getDepart();
 
 
 //------------------------------------------------- Surcharge d'opérateurs
-    Xxx & operator = ( const Xxx & unXxx );
+    Trajet & operator = ( const Trajet & unTrajet );
     // Mode d'emploi :
     //
     // Contrat :
