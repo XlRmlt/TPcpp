@@ -47,3 +47,11 @@ Trajet::Trajet ( const Trajet & unTrajet )
   cout << "Appel au constructeur de copie de <Trajet>" << endl;
   #endif
 } //----- Fin de Trajet (constructeur de copie)
+
+Trajet::~Trajet ( const Trajet & unTrajet )
+{
+  #ifdef MAP
+  cout << "Appel au deconstructeur de copie de <Trajet>" << endl;
+  #endif
+} //----- Fin de Trajet (deconstructeur de copie)
+
