@@ -1,7 +1,7 @@
 //---------- Interface de la classe <TrajetCompose> (fichier TrajetCompose.h) ----------------
 #if ! defined ( TrajetCompose_H )
 #define TrajetCompose_H
-
+#include "liste_chainee.h" 
 //--------------------------------------------------- Interfaces utilisées
 
 //------------------------------------------------------------- Constantes
@@ -16,13 +16,13 @@
 
 class TrajetCompose
 {
-//----------------------------------------------------------------- PUBLIC
+    //----------------------------------------------------------------- PUBLIC
 
-public:
-virtual char * getDepart();
-virtual char * getArrivee();
-virtual void Afficher();
-//----------------------------------------------------- Méthodes publiques
+    public:
+    virtual char* getDepart();
+    virtual char* getArrivee();
+    virtual void Afficher();
+    //----------------------------------------------------- Méthodes publiques
     // type Méthode ( liste des paramètres );
     // Mode d'emploi :
     //
@@ -30,7 +30,7 @@ virtual void Afficher();
     //
 
 
-//------------------------------------------------- Surcharge d'opérateurs
+    //------------------------------------------------- Surcharge d'opérateurs
     TrajetCompose & operator = ( const TrajetCompose & unTrajetCompose );
     // Mode d'emploi :
     //
@@ -41,26 +41,25 @@ virtual void Afficher();
 //-------------------------------------------- Constructeurs - destructeur
 
 
-    TrajetCompose ( char * D, char * A, char * T);
+    TrajetCompose(trajet*traj);
     // Mode d'emploi :
     //
     // Contrat :
     //
 
-    virtual ~TrajetCompose ( );
+    virtual ~TrajetCompose();
     // Mode d'emploi :
     //
     // Contrat :
     //
+    void TrajetCompose::ajouterElem(trajet* traj);
+    //------------------------------------------------------------------ PRIVE
 
-//------------------------------------------------------------------ PRIVE
+    protected:
+        liste_chainee lst;
+    //----------------------------------------------------- Méthodes protégées
 
-protected:
-char * Depart;
-char * Arrivee;
-//----------------------------------------------------- Méthodes protégées
-
-//----------------------------------------------------- Attributs protégés
+    //----------------------------------------------------- Attributs protégés
 
 };
 
