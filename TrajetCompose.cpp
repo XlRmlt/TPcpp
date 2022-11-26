@@ -20,17 +20,24 @@ using namespace std;
 //
 //{
 //} //----- Fin de Méthode
-char * TrajetCompose::getDepart(){
-    return(this->Depart); //prendre le départ du début de la liste chainée
+char* TrajetCompose::getDepart()
+{
+    return (getDepart(this->lst)); //prendre le départ du début de la liste chainée
 }
 
-char * TrajetCompose::getArrivee(){
-    return(this->Arrivee); //prendre l'arrivée de la fin de la liste chainée
+char* TrajetCompose::getArrivee()
+{
+    return (getArrivee(this->lst)); //prendre l'arrivée de la fin de la liste chainée
 }
 
 void TrajetCompose::Afficher()
 {
-    // Pour chaque élément de la liste chainée: Afficher() de chaque élément
+    Cellule* courant = this->lst->racine;
+    while (courant->suivant != 0)
+    {
+        courant->t->Afficher();
+        courant = courant->suivant;
+    }
 }
 
 //------------------------------------------------- Surcharge d'opérateurs
@@ -41,33 +48,58 @@ void TrajetCompose::Afficher()
 
 
 
-TrajetCompose::TrajetCompose ( char * D, char * A, char * T)
+TrajetCompose::TrajetCompose(trajet* traj)
 // Algorithme :
 //
 {
 #ifdef MAP
     cout << "Appel au constructeur de <TrajetCompose>" << endl;
 #endif
-Depart= new char [strlen(D)+1];
-strcpy(Depart,D);
-Arrivee= new char [strlen(A)+1];
-strcpy(Arrivee,A);
-Transport= new char [strlen(T)+1];
-strcpy(Transport,T);
+    this->lst->racine = new Cellule;
+    racine->suivant = 0;
+    racine->t = traj;
+
 } //----- Fin de TrajetCompose
 
 
-TrajetCompose::~TrajetCompose ( )
+TrajetCompose::~TrajetCompose()
 // Algorithme :
 //
 {
 #ifdef MAP
     cout << "Appel au destructeur de <TrajetCompose>" << endl;
 #endif
+    Cellule* courant = racine;
+    while (courant)
+    {
+        Cellule* suivant = courant->suivant;
+        delete courant;
+        courant = suivant;
+    }
 } //----- Fin de ~TrajetCompose
 
+void TrajetCompose::ajouterElem(trajet* traj)
+{
+
+    Cellule* cel = new Cellule;
+    cel->t = traj;
+    cel->suivant = 0;
+    if (longueur == 0)
+    {
+        this->lst->racine = cel;
+    }
+    else
+    {
+        Cellule* courant = this->lst->racine;
+        while (courant->suivant != 0)
+        {
+            courant = courant->suivant;
+        }
+        courant->suivant = cel;
+
+    }
+}
 
 //------------------------------------------------------------------ PRIVE
 
 //----------------------------------------------------- Méthodes protégées
-
