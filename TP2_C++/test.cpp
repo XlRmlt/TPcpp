@@ -10,4 +10,7 @@ int main (){
     TrajetSimple e(D,A,T);
     e.Afficher();
     return 0;
+
+
+    
 }

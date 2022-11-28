@@ -19,8 +19,8 @@ class TrajetSimple : public trajet
 //----------------------------------------------------------------- PUBLIC
 
 public:
-virtual const char * getDepart();
-virtual const char * getArrivee();
+virtual char * getDepart() const ;
+virtual char * getArrivee() const ;
 virtual void Afficher();
 
 //----------------------------------------------------- Méthodes publiques
@@ -32,12 +32,6 @@ virtual void Afficher();
 
 
 //------------------------------------------------- Surcharge d'opérateurs
-    TrajetSimple & operator = ( const TrajetSimple & unTrajetSimple );
-    // Mode d'emploi :
-    //
-    // Contrat :
-    //
-
 
 //-------------------------------------------- Constructeurs - destructeur
 

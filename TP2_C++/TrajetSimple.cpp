@@ -21,11 +21,11 @@ using namespace std;
 //
 //{
 //} //----- Fin de Méthode
-const char * TrajetSimple::getDepart(){
+char * TrajetSimple::getDepart() const {
     return(this->Depart);
 }
 
-const char * TrajetSimple::getArrivee(){
+char * TrajetSimple::getArrivee() const{
     return(this->Arrivee);
 }
 
