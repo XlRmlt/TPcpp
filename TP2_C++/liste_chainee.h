@@ -11,7 +11,7 @@
 #define LISTE_H
 
 #include "trajet.h"
-#include "liste_chainee.h" 
+
 
 
 typedef struct Cellule {
@@ -53,10 +53,9 @@ public:
     // Mode d'emploi (constructeur de copie) :
     //
     // Contrat :
-    //
 
-    liste_chainee(trajet* t) ; 
-    
+    liste_chainee(trajet* traj) ; 
+
     void ajouterElem(trajet* traj) ; 
     // Mode d'emploi :
     //

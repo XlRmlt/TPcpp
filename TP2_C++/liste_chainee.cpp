@@ -40,13 +40,17 @@ using namespace std;
 
  //----- Fin de Xxx
 
-
+liste_chainee::liste_chainee (trajet* traj){
+    Cellule* cel = new Cellule ; 
+    cel->t = traj   ; 
+    cel->suivant = 0 ; 
+    this->racine = cel ; 
+    this->longueur = 0 ; 
+}
 liste_chainee::~liste_chainee ()
 // Algorithme :
 //
 {
-    
-
 #ifdef MAP
     cout << "Appel au destructeur de <Xxx>" << endl;
 #endif
