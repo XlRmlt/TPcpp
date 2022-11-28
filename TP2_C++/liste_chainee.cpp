@@ -45,7 +45,7 @@ liste_chainee::liste_chainee (trajet* traj){
     cel->t = traj   ; 
     cel->suivant = 0 ; 
     this->racine = cel ; 
-    this->longueur = 0 ; 
+    this->longueur = 1 ; 
 }
 liste_chainee::~liste_chainee ()
 // Algorithme :
