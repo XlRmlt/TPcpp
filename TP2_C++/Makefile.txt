@@ -1,0 +1,16 @@
+test : test.o trajet.o liste_chainee.o TrajetSimple.o
+	g++ -o test test.o trajet.o liste_chainee.o
+
+test.o : test.cpp trajet.h TrajetSimple.h
+	g++ -c test.cpp
+
+trajet.o : trajet.cpp trajet.h
+	g++ -c trajet.cpp
+
+
+liste_chainee.o : liste_chainee.cpp liste_chainee.h
+	g++ -c liste_chainee.cpp
+
+TrajetSimple.o : TrajetSimple.cpp TrajetSimple.h trajet.h
+	g++ -c TrajetSimple.cpp
+
