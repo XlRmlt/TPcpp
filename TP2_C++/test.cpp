@@ -1,6 +1,5 @@
 #include <iostream>
 using namespace std;
-#include "liste_chainee.h"
 #include "trajet.h"
 #include "TrajetSimple.h"
 

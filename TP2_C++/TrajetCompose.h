@@ -20,8 +20,8 @@ class TrajetCompose : public trajet
     //----------------------------------------------------------------- PUBLIC
 
     public:
-    virtual const char* getDepart();
-    virtual const char* getArrivee();
+    virtual  char* getDepart() const ;
+    virtual char* getArrivee()const ;
     virtual void Afficher();
     //----------------------------------------------------- Méthodes publiques
     // type Méthode ( liste des paramètres );

@@ -27,9 +27,9 @@ class trajet
 //----------------------------------------------------------------- PUBLIC
 
 public:
-virtual void Afficher();
-virtual const char* getArrivee() = 0 ; 
-virtual const char* getDepart() = 0 ; 
+  virtual void Afficher();
+  virtual char* getArrivee() const = 0 ; 
+  virtual char* getDepart() const = 0 ; 
 
 //----------------------------------------------------- Méthodes publiques
     // type Méthode ( liste des paramètres );

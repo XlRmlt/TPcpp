@@ -54,6 +54,8 @@ public:
     //
     // Contrat :
 
+    liste_chainee() ; 
+
     liste_chainee(trajet* traj) ; 
 
     void ajouterElem(trajet* traj) ; 
@@ -62,11 +64,13 @@ public:
     // Contrat :
     //
 
-    const trajet* premierTrajet()const ; 
+    trajet* premierTrajet()const ; 
 
-    const trajet* dernierTrajet()const ; 
+    trajet* dernierTrajet()const ; 
 
     virtual ~liste_chainee ();
+
+    Cellule* getPremierCellule() ; 
     // Mode d'emploi :
     //
     // Contrat :

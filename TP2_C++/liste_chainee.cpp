@@ -47,6 +47,10 @@ liste_chainee::liste_chainee (trajet* traj){
     this->racine = cel ; 
     this->longueur = 1 ; 
 }
+liste_chainee::liste_chainee(){
+    this->longueur = 0 ; 
+
+}
 liste_chainee::~liste_chainee ()
 // Algorithme :
 //
@@ -81,11 +85,15 @@ void liste_chainee :: ajouterElem(trajet* traj) {
 }
 
 
-const trajet* liste_chainee::premierTrajet()const{
+trajet* liste_chainee::premierTrajet()const{
     return racine->t ; 
 }
 
-const trajet* liste_chainee::dernierTrajet()const{
+Cellule* liste_chainee::getPremierCellule(){
+    return this->racine ; 
+}
+
+trajet* liste_chainee::dernierTrajet()const{
     Cellule* courant = racine ;
     if (longueur == 0){
         return 0 ; 

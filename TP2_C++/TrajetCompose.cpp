@@ -21,19 +21,19 @@ using namespace std;
 //
 //{
 //} //----- Fin de Méthode
-const char* TrajetCompose::getDepart()
+ char* TrajetCompose::getDepart()const
 {
     return (lst->premierTrajet()->getDepart()) ; //prendre le départ du début de la liste chainée
 }
 
-const char* TrajetCompose::getArrivee()
+char* TrajetCompose::getArrivee()const
 {
     return (lst->dernierTrajet()->getArrivee()); //prendre l'arrivée de la fin de la liste chainée
 }
 
 void TrajetCompose::Afficher()
 {
-    Cellule* courant = this->lst->racine;
+    Cellule* courant = this->lst->getPremierCellule()  ;
     while (courant->suivant != 0)
     {
         courant->t->Afficher();
@@ -59,7 +59,7 @@ TrajetCompose::TrajetCompose()
     #ifdef MAP
         cout << "Appel au constructeur de <TrajetCompose>" << endl;
     #endif
-    this->lst = new liste_chainee ; 
+    this->lst = new liste_chainee() ; 
 
 } //----- Fin de TrajetCompose
 

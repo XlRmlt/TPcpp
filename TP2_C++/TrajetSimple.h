@@ -58,9 +58,9 @@ virtual void Afficher();
 //------------------------------------------------------------------ PRIVE
 
 protected:
-char * Depart;
-char * Arrivee;
-char * Transport;
+    char * Depart;
+    char * Arrivee;
+    char * Transport;
 //----------------------------------------------------- Méthodes protégées
 
 //----------------------------------------------------- Attributs protégés
