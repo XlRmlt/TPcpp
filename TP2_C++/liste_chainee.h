@@ -66,6 +66,8 @@ public:
 
     trajet* premierTrajet()const ; 
 
+    int getLongueur() ; 
+
     trajet* dernierTrajet()const ; 
 
     virtual ~liste_chainee ();

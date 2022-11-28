@@ -22,7 +22,7 @@ using namespace std;
 //{
 //} //----- Fin de Méthode
 char * TrajetSimple::getDepart() const {
-    return(this->Depart);
+    return(this->Depart) ;
 }
 
 char * TrajetSimple::getArrivee() const{
@@ -33,7 +33,7 @@ char * TrajetSimple::getArrivee() const{
 
 void TrajetSimple::Afficher()
 {
-    cout << "de " << getDepart() <<"à "<< getArrivee() <<"en "<< this->Transport<<endl ;
+    cout << "De " << getDepart() <<" à "<< getArrivee() <<" en "<< this->Transport ;
 }
 
 //------------------------------------------------- Surcharge d'opérateurs

@@ -4,7 +4,7 @@ test: trajet.o TrajetSimple.o test.o
 trajet.o: trajet.cpp trajet.h
 	g++ -c trajet.cpp
 
-TrajetSimple.o: t
+TrajetSimple.o: trajet.o
 	g++ -c TrajetSimple.cpp
 
 test.o: TrajetSimple.o trajet.o

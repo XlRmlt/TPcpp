@@ -34,12 +34,17 @@ char* TrajetCompose::getArrivee()const
 void TrajetCompose::Afficher()
 {
     Cellule* courant = this->lst->getPremierCellule()  ;
-    while (courant->suivant != 0)
+    int i = 0 ; 
+    while (courant != 0)
     {
-        courant->t->Afficher();
+        courant->t->Afficher() ; 
+        if(i!= this->lst->getLongueur()-1){
+
+            cout<< " - " ;
+        } 
+        i++ ; 
         courant = courant->suivant;
     }
-    cout<<" - " ; 
 }
 
 

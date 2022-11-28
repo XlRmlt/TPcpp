@@ -18,6 +18,8 @@ using namespace std;
 
 //------------------------------------------------------ Include personnel
 #include "liste_chainee.h" 
+
+#include <cstring> 
 //------------------------------------------------------------- Constantes
 
 //----------------------------------------------------------------- PUBLIC
@@ -68,18 +70,22 @@ Cellule* courant = racine ;
 } //----- Fin de ~Xxx
 
 void liste_chainee :: ajouterElem(trajet* traj) {
-
+    
     Cellule* cel = new Cellule ; 
     cel->t = traj   ; 
     cel->suivant = 0 ; 
     if (longueur == 0){
         this->racine = cel ; 
     }else{
+
         Cellule* courant = this->racine ; 
         while(courant->suivant != 0){
             courant = courant->suivant ; 
         }
-        courant->suivant = cel ; 
+        if (strcmp(traj->getDepart(), courant->t->getArrivee())== 0){
+            courant->suivant = cel ; 
+            this->longueur++ ; 
+        }
     }
     this->longueur++ ; 
 }
@@ -91,6 +97,10 @@ trajet* liste_chainee::premierTrajet()const{
 
 Cellule* liste_chainee::getPremierCellule(){
     return this->racine ; 
+}
+
+int liste_chainee::getLongueur(){
+    return this->longueur ; 
 }
 
 trajet* liste_chainee::dernierTrajet()const{
