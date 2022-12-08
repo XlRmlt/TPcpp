@@ -49,6 +49,8 @@ public:
     //
 
   virtual ~trajet () ; 
+
+  virtual trajet* Clone() const = 0 ; 
     // Mode d'emploi :
     //
     // Contrat :

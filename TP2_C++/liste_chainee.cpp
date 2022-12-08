@@ -1,14 +1,8 @@
 
 
-/*************************************************************************
-                           Xxx  -  description
-                             -------------------
-    début                : $DATE$
-    copyright            : (C) $YEAR$ par $AUTHOR$
-    e-mail               : $EMAIL$
-*************************************************************************/
 
-//---------- Réalisation de la classe <Xxx> (fichier Xxx.cpp) ------------
+
+//---------- Réalisation de la classe <liste_Chainee> (fichier liste_chainee.cpp) ------------
 
 //---------------------------------------------------------------- INCLUDE
 
@@ -25,98 +19,89 @@ using namespace std;
 //----------------------------------------------------------------- PUBLIC
 
 //----------------------------------------------------- Méthodes publiques
-// type Xxx::Méthode ( liste des paramètres )
-// Algorithme :
-//
-//{
-//} //----- Fin de Méthode
-
-
-
-
-
-
-
-
-//-------------------------------------------- Constructeurs - destructeur
-
- //----- Fin de Xxx
-
-liste_chainee::liste_chainee (trajet* traj){
-    Cellule* cel = new Cellule ; 
-    cel->t = traj   ; 
-    cel->suivant = 0 ; 
-    this->racine = cel ; 
-    this->longueur = 1 ; 
-}
-liste_chainee::liste_chainee(){
-    this->longueur = 0 ; 
-
-}
-liste_chainee::~liste_chainee ()
-// Algorithme :
-//
-{
-#ifdef MAP
-    cout << "Appel au destructeur de <Xxx>" << endl;
-#endif
-
-Cellule* courant = racine ; 
-    while(courant){
-        Cellule* suivant = courant->suivant;
-        delete courant;
-        courant = suivant ; 
+trajet* liste_chainee:: acceder(unsigned int indice)const{
+    if (indice>= longueur){
+        return 0 ; 
     }
-} //----- Fin de ~Xxx
 
-void liste_chainee :: ajouterElem(trajet* traj) {
+    Cellule* a = racine ; 
+    for (int i =0 ; i<indice ; i++){
+        a = a->suivant ; 
+    }
+    return a->t ; 
+}//----- Fin de acceder
+
+void liste_chainee :: ajouterElem(trajet* traj) {   
     
     Cellule* cel = new Cellule ; 
-    cel->t = traj   ; 
+    cel->t = traj->Clone()   ; 
     cel->suivant = 0 ; 
     if (longueur == 0){
         this->racine = cel ; 
     }else{
-
         Cellule* courant = this->racine ; 
         while(courant->suivant != 0){
             courant = courant->suivant ; 
         }
-        if (strcmp(traj->getDepart(), courant->t->getArrivee())== 0){
-            courant->suivant = cel ; 
-            this->longueur++ ; 
-        }
+        courant->suivant = cel ; 
     }
-    this->longueur++ ; 
-}
-
+    this->longueur++ ;
+}//----- Fin de ajouterElem
 
 trajet* liste_chainee::premierTrajet()const{
     return racine->t ; 
-}
-
-Cellule* liste_chainee::getPremierCellule(){
-    return this->racine ; 
-}
+}//----- Fin de premierTrajet
 
 int liste_chainee::getLongueur(){
     return this->longueur ; 
-}
+}//----- Fin de getLongueur
+
+
 
 trajet* liste_chainee::dernierTrajet()const{
-    Cellule* courant = racine ;
-    if (longueur == 0){
-        return 0 ; 
+    return this->acceder(longueur -1) ;  
+}//----- Fin de dernierTrajet
+
+Cellule* liste_chainee::getPremierCellule(){
+    return this->racine ; 
+}//----- Fin de getPremierCellule
+
+
+//-------------------------------------------- Constructeurs - destructeur
+
+
+
+
+liste_chainee :: liste_chainee(const liste_chainee & liste){
+    #ifdef MAP
+        cout << "Appel au constructeur de copie de liste_chainee" << endl;
+    #endif
+    for (int i = 0 ;  i <liste.longueur ; i++){
+        this->ajouterElem(liste.acceder(i)) ; 
+    } 
+}//----- Fin de liste_chainee
+
+liste_chainee::liste_chainee(){
+    #ifdef MAP
+        cout << "Appel au constructeur par defaut de liste_chainee" << endl;
+    #endif
+    this->longueur = 0 ; 
+}//----- Fin de liste_chainee
+
+
+liste_chainee::~liste_chainee ()
+{
+#ifdef MAP
+    cout << "Appel au destructeur de <liste_chainee>" << endl;
+#endif
+    Cellule* courant = racine ; 
+    while(courant){
+        Cellule* suivant = courant->suivant;
+        delete courant->t;
+        delete courant ; 
+        courant = suivant ; 
     }
-    for (int i = 0 ; i<longueur ; i++){
-        courant = courant->suivant ; 
-    }
-    return courant->t ; 
-    
-}
+} //----- Fin de ~liste_chainee
 
 
-//------------------------------------------------------------------ PRIVE
-
-//----------------------------------------------------- Méthodes protégées
 

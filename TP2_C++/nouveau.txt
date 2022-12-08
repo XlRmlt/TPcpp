@@ -1,0 +1,22 @@
+CPPFLAGS= -ansi -pedantic -Wall -std=c++11 -g
+
+test : test.o trajet.o TrajetSimple.o liste_chainee.o TrajetCompose.o Catalogue.o
+	@echo "edl de test"
+	g++ -o $@ $^
+
+%.o : %.cpp %.h
+	@echo "compil de $<"
+	g++ -c $< $(CPPFLAGS)
+
+
+clean : 
+	clear
+	clear
+	@echo "suppresion des fichiers compilés existants"
+	touch t.o
+	rm *.o
+	make
+
+runCheck : 
+	make clean
+	valgrind ./test

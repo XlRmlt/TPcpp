@@ -1,17 +1,22 @@
-test : test.o trajet.o TrajetSimple.o liste_chainee.o TrajetCompose.o
-	g++ -o test test.o trajet.o TrajetSimple.o liste_chainee.o TrajetCompose.o
+CPPFLAGS= -ansi -pedantic -Wall -std=c++11 -g
 
-test.o : test.cpp
-	g++ -c test.cpp
+test : test.o trajet.o TrajetSimple.o liste_chainee.o TrajetCompose.o Catalogue.o
+	@echo "edl de test"
+	g++ -o $@ $^
 
-TrajetSimple.o : TrajetSimple.cpp
-	g++ -c TrajetSimple.cpp
+%.o : %.cpp %.h
+	@echo "compil de $<"
+	g++ -c $< $(CPPFLAGS)
 
-liste_chainee.o : liste_chainee.cpp
-	g++ -c liste_chainee.cpp
 
-TrajetCompose.o : TrajetCompose.cpp
-	g++ -c TrajetCompose.cpp
+clean : 
+	clear
+	clear
+	@echo "suppresion des fichiers compilés existants"
+	touch t.o
+	rm *.o
+	make
 
-trajet.o : trajet.cpp
-	g++ -c trajet.cpp
+runCheck : 
+	make clean
+	valgrind ./test
