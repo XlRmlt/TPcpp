@@ -10,5 +10,4 @@ int main (){
     Catalogue a ; 
     a.Interface() ; 
     return 0 ;
-    
 }
