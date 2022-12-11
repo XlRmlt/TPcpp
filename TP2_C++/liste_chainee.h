@@ -32,17 +32,22 @@ trajet* acceder (unsigned int indice) const ;
 // Contrat :
     // Rien
 
-void ajouterElem(trajet* traj) ; 
+void ajouterElem(trajet* traj , int tri ) ; 
 // Mode d'emploi :
     //ajoute le trajet pointé par traj en faisant une copie en profondeur
+    //2 mode d'ajouts : 
+    //mode 1 :  ajout en fin de liste chainée (pour les trajets composées)
+    //mode 2 : ajout par ordonnancement(pour la liste chainée du catalogue)
+    //Cet ajout se fait en comparant les villes de départ respectives de traj ainsi que celles de la listes chainées 
+    //(usage de la fonction strcmp() pour la comparaison)
 // Contrat :
-    //Rien 
+    //tri = 0 pour l'insertion avec le mode 1, sinon insertion avec le mode 2 
 
 trajet* premierTrajet()const ; 
 // Mode d'emploi :
-    //Renvoie un pointeur vers le premier trajet de Liste_chainee
+    //Renvoie un pointeur vers le premier trajet de Liste_chainee et 0 si aucun trajet n'est présent
 // Contrat :
-    //Au moins un élément a été ajouté au préalable
+    //Rien
 
 int getLongueur() ; 
 // Mode d'emploi (constructeur par défaut) :

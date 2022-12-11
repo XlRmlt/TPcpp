@@ -1,14 +1,8 @@
 
 
-/*************************************************************************
-                           Xxx  -  description
-                             -------------------
-    début                : $DATE$
-    copyright            : (C) $YEAR$ par $AUTHOR$
-    e-mail               : $EMAIL$
-*************************************************************************/
 
-//---------- Réalisation de la classe <Xxx> (fichier Xxx.cpp) ------------
+
+//---------- Réalisation de la classe <trajet> (fichier trajet.cpp) ------------
 
 //---------------------------------------------------------------- INCLUDE
 
@@ -24,19 +18,12 @@ using namespace std;
 //----------------------------------------------------------------- PUBLIC
 
 //----------------------------------------------------- Méthodes publiques
-// type Xxx::Méthode ( liste des paramètres )
-// Algorithme :
-//
-//{
-//} //----- Fin de Méthode
+
 void trajet::Afficher(){
   #ifdef MAP
      cout << "Appel au constructeur de la méthode affichée de trajet " << endl;
 #endif
 }
-
-
-
 
 
 
@@ -49,9 +36,9 @@ trajet::trajet ( )
 //
 {
 #ifdef MAP
-    cout << "Appel au constructeur de <Xxx>" << endl;
+    cout << "Appel au constructeur de <trajet>" << endl;
 #endif
-} //----- Fin de Xxx
+} //----- Fin de trajet
 
 
 trajet::~trajet ( )
@@ -59,9 +46,9 @@ trajet::~trajet ( )
 //
 {
 #ifdef MAP
-    cout << "Appel au destructeur de <Xxx>" << endl;
+    cout << "Appel au destructeur de <trajet>" << endl;
 #endif
-} //----- Fin de ~Xxx
+} //----- Fin de ~trajet
 
 
 //------------------------------------------------------------------ PRIVE

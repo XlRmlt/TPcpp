@@ -10,8 +10,9 @@
 
 //------------------------------------------------------------------------
 // Rôle de la classe <TrajetSimple>
-//
-//
+//Trajet Simple hérite publiquement de Trajet
+//Un trajet Simple comporte 3 attributs de type char* que sont
+//la ville de départ la ville d'arrivée et le moyen de transport
 //------------------------------------------------------------------------
 
 class TrajetSimple : public trajet
@@ -64,8 +65,6 @@ TrajetSimple(const TrajetSimple & unTrajetSimple)  ;
     //Rien 
      
 
-    
-
 virtual ~TrajetSimple ();
 // Mode d'emploi :
     //Libère toute la mémoire allouée lors de la construction
@@ -84,6 +83,5 @@ protected:
     char * Transport;
 };
 
-//-------------------------------- Autres définitions dépendantes de <TrajetSimple>
 
 #endif // TrajetSimple_H

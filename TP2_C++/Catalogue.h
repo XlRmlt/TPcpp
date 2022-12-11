@@ -15,8 +15,12 @@
 
 //------------------------------------------------------------------------
 // Rôle de la classe <Catalogue>
-//
-//
+//La classe Catalogue fait le lien entre l'utilisateur et les données
+//Elle propose 3 service : 
+//Afficher l'ensemble des trajets enregistrées
+//ajouter des trajets
+//rechercher des trajets à partir de trajets déjà présents dans la base de données
+
 //------------------------------------------------------------------------
 
 class Catalogue 
@@ -39,22 +43,23 @@ void afficher() ;
     //rien 
 void recherche_simple() ; 
 // Mode d'emploi :
-    //
+    //Demande à l'utilisateur une ville de départ et une ville d'arrivée
+    //Montre à l'utilisateur les trajets qui correspondent à sa demande
 // Contrat :
-    //
+    //Les données rentrées par l'utilisateur sont correctes(pas plus que 50 caractères par entrée)
 
 void ajouter_trajet_simple() ; 
 // Mode d'emploi : 
     //Service qui permet d'ajouter au catalogue un trajet Simple
 //Contrat : 
-    //Les données rentrées par l'utilisateur sont correctes 
+    //Les données rentrées par l'utilisateur sont correctes (pas plus que 50 caractères par entrée)
 
 
 void ajouter_trajet_compose() ; 
 // Mode d'emploi : 
     //Service qui permet d'ajouter au catalogue un trajet Composé
 //Contrat : 
-    //Les données rentrées par l'utilisateur sont correctes 
+    //Les données rentrées par l'utilisateur sont correctes (pas plus que 50 caractères par entrée)
 
 
 //-------------------------------------------- Constructeurs - destructeur
@@ -82,7 +87,7 @@ protected:
 liste_chainee Cat ; 
 };
 
-//-------------------------------- Autres définitions dépendantes de <Xxx>
+
 
 #endif // Catalogue_H
 

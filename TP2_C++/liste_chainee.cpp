@@ -25,13 +25,13 @@ trajet* liste_chainee:: acceder(unsigned int indice)const{
     }
 
     Cellule* a = racine ; 
-    for (int i =0 ; i<indice ; i++){
+    for (unsigned int i =0 ; i<indice ; i++){
         a = a->suivant ; 
     }
     return a->t ; 
 }//----- Fin de acceder
 
-void liste_chainee :: ajouterElem(trajet* traj) {   
+void liste_chainee :: ajouterElem(trajet* traj ,int  tri) {   
     
     Cellule* cel = new Cellule ; 
     cel->t = traj->Clone()   ; 
@@ -39,11 +39,20 @@ void liste_chainee :: ajouterElem(trajet* traj) {
     if (longueur == 0){
         this->racine = cel ; 
     }else{
-        Cellule* courant = this->racine ; 
-        while(courant->suivant != 0){
-            courant = courant->suivant ; 
+        Cellule* courant = this->racine ;
+        if (tri == 0){
+            while(courant->suivant != 0){
+                courant = courant->suivant ; 
+            }
+            courant->suivant = cel ; 
+        }else{
+            while(strcmp(cel->t->getDepart() ,courant->t->getDepart()) < 0 
+            && courant->suivant != 0){
+                courant = courant->suivant ; 
+            }
+            cel->suivant = courant->suivant ; 
+            courant->suivant = cel ; 
         }
-        courant->suivant = cel ; 
     }
     this->longueur++ ;
 }//----- Fin de ajouterElem
@@ -76,8 +85,8 @@ liste_chainee :: liste_chainee(const liste_chainee & liste){
     #ifdef MAP
         cout << "Appel au constructeur de copie de liste_chainee" << endl;
     #endif
-    for (int i = 0 ;  i <liste.longueur ; i++){
-        this->ajouterElem(liste.acceder(i)) ; 
+    for (unsigned int i = 0 ;  i <liste.longueur ; i++){
+        this->ajouterElem(liste.acceder(i) , 0) ; 
     } 
 }//----- Fin de liste_chainee
 

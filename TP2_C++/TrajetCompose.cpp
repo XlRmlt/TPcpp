@@ -52,7 +52,7 @@ trajet* TrajetCompose :: Clone() const{
 }//----------fin de Clone
 
 void TrajetCompose::ajouterElem(trajet* traj){
-    lst->ajouterElem(traj) ; 
+    lst->ajouterElem(traj , 0) ; 
 }//----------fin de ajouterElem
 
 

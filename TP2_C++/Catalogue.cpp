@@ -18,10 +18,11 @@ using namespace std;
 
 //----------------------------------------------------- Méthodes publiques
 void Catalogue :: Interface(){
-    int choix ;  
+    int choix ; 
+    cout<<"Bienvenue dans le catalogue de trajets."<< endl ; 
+    cout<<endl ; 
     do{
-        cout<<"Bienvenue dans le catalogue de trajets"<< endl ; 
-        cout<<endl ; 
+        cout<<"Veuillez taper la commande correspndant à votre requête : "<<endl  ; 
         cout<<"--------------------Menu--------------------"<<endl ; 
         cout<<"0 -> Quitter l'apliccation "<<endl ; 
         cout<<"1 -> ajouter trajet Simple"<<endl ; 
@@ -78,9 +79,9 @@ void Catalogue :: recherche_simple(){
     int nb = 0 ;  
     for (int i = 0 ; i<Cat.getLongueur() ; i++){
         if(strcmp(Ville_Dep , Cat.acceder(i)->getDepart()) == 0 && strcmp(Ville_Arriv , Cat.acceder(i)->getArrivee()) == 0){
-            cout<< "trajet : " ; 
+            cout<< "le trajet : " ; 
             Cat.acceder(i)->Afficher() ; 
-            cout<<"correspond bien à la demande requise" ; 
+            cout<<" correspond bien à la demande requise" ; 
             cout<<endl ;
             nb++ ; 
         }
@@ -88,6 +89,7 @@ void Catalogue :: recherche_simple(){
     if(nb == 0){
         cout<<"Aucun trajet ne correspond à la demande requise"<<endl ;
     } 
+    cout<<endl ; 
 }//--------------fin de recherche simple
 
 void Catalogue :: ajouter_trajet_simple(){
@@ -101,8 +103,9 @@ void Catalogue :: ajouter_trajet_simple(){
     cout<<"Veuillez saisir le moyen de transport"<<endl  ;
     cin>>Transport ; 
     TrajetSimple t(Ville_Dep , Ville_Arriv , Transport) ;  
-    Cat.ajouterElem(&t) ; 
+    Cat.ajouterElem(&t ,1) ; 
     cout<<"L'ajout a bien ete realise"<<endl ; 
+    cout<<endl ; 
 }//--------------fin de ajouter_trajet_simple
 
 
@@ -125,7 +128,7 @@ void Catalogue :: ajouter_trajet_compose(){
         strcpy(Ville_Dep ,Ville_Arriv) ; 
         cin>>Ville_Arriv ;
         if(strcmp(Ville_Arriv , "0") == 0){
-            Cat.ajouterElem(&tc) ;
+            Cat.ajouterElem(&tc ,1) ;
             break ; 
         }else{ 
             cout<<"Veuillez saisir le moyen de transport"<<endl  ;
